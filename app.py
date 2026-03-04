@@ -9,7 +9,7 @@ portfolio_data = {
     "tagline": "Building intelligent systems with strong mathematical foundations and real-world impact.",
     "email": "ssrathore1922@gmail.com",
     "linkedin": "https://www.linkedin.com/in/swadeshsinghrathore",
-    "github": "https://github.com/yourusername",   # update if needed
+    "github": "https://github.com/swadeshsinghrathore",   # update if needed
     "available": True,
 
     "about": {
@@ -35,7 +35,7 @@ portfolio_data = {
 
     "projects": [
         {
-            "num": "001",
+            "num": "001(Ongoing)",
             "name": "Smart Crop Advisory System",
             "desc": "Machine learning-based advisory system assisting farmers in crop selection, irrigation planning, and pest control using soil and weather data. Implemented data preprocessing and predictive modeling for real-time agricultural recommendations.",
             "tags": ["HTML","css","JS","Flask","Python", "Data Preprocessing","...."],
