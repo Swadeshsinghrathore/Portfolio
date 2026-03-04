@@ -10,15 +10,14 @@ portfolio_data = {
     "email": "ssrathore1922@gmail.com",
     "linkedin": "https://www.linkedin.com/in/swadeshsinghrathore",
     "github": "https://github.com/yourusername",   # update if needed
-    "antigravity": "",
     "available": True,
 
     "about": {
         "bio": "Artificial Intelligence focused Computer Science undergraduate with strong academic performance (CGPA 8.89/10) and deep interest in Machine Learning, Computer Vision, and Data Science. Experienced in developing ML-based systems, implementing predictive models, and working with structured and unstructured datasets using Python..",
         "stats": [
             {"num": "8.89", "label": "CGPA"},
-            {"num": "3+", "label": "AI Projects"},
-            {"num": "5+", "label": "Certifications"},
+            {"num": "3+", "label": "Projects"},
+            {"num": "10+", "label": "Certifications"},
             {"num": "∞", "label": "Curiosity"},
         ]
     },
@@ -39,23 +38,31 @@ portfolio_data = {
             "num": "001",
             "name": "Smart Crop Advisory System",
             "desc": "Machine learning-based advisory system assisting farmers in crop selection, irrigation planning, and pest control using soil and weather data. Implemented data preprocessing and predictive modeling for real-time agricultural recommendations.",
-            "tags": ["Python", "Machine Learning", "Data Preprocessing"],
+            "tags": ["HTML","css","JS","Flask","Python", "Data Preprocessing","...."],
             "link": "#"
         },
         {
             "num": "002",
             "name": "Resume Builder & ATS Checker",
             "desc": "Web-based resume platform built using Flask, MySQL, HTML, CSS, and JavaScript. Implemented ATS scoring system using structured keyword analysis and optimized database schema for efficient resume storage and retrieval.",
-            "tags": ["Flask", "MySQL", "NLP Basics"],
-            "link": "#"
+            "tags": ["HTML","css","JS","Bootstrap","Flask", "MySQL", "SQLite"],
+            "link": "https://resumebuilder-hwar.onrender.com"
         },
         {
             "num": "003",
+            "name": "Student Portfolio Website",
+            "desc": "Personal portfolio website showcasing projects, skills, and experience. Developed using Flask for backend and HTML/CSS/JS for frontend, with structured data management to enable easy updates and scalability.",
+            "tags": ["HTML","css","JS","Flask","Python"],
+            "link": "https://portfolio-1-ct6h.onrender.com"
+        },
+        {
+            "num": "004(Team)",
             "name": "Vision Voice (Assistive AI System)",
             "desc": "AI-based assistive system integrating sign language recognition, speech-to-text conversion, and object detection. Built real-time workflows using TensorFlow and OpenCV with structured dataset preparation.",
             "tags": ["TensorFlow", "OpenCV", "Computer Vision"],
             "link": "#"
-        }
+        },
+        
     ],
 
     "education": [
@@ -86,29 +93,22 @@ portfolio_data = {
     "experience": [
         {
             "role": "Technical Intern",
-            "company": "Smart Crop Advisory System",
-            "duration": "June 2025 — August 2025",
+            "company": "Modern Insulators Ltd.",
+            "duration": "May 2025 — August 2025",
             "location": "Abu, Rajasthan",
             "details": "Worked on machine learning model implementation, data preprocessing, and agricultural prediction system development."
         },
         {
             "role": "Web Designer", 
-            "company": "Modern Insulators Ltd.",
+            "company": "MechaCraft Technologies Pvt. Ltd.",
             "duration": "June 2024 — November 2024",
             "location": "Jaipur, Rajasthan",
             "details": "Developed and maintained web systems, improved backend data handling, and implemented FAQ module to enhance usability."
         },
         {
             "role": "Web Development Intern",
-            "company": "MechaCraft Technologies Pvt. Ltd.",
-            "duration": "June 2024 — July 2024",
-            "location": "Jaipur, Rajasthan",
-            "details": "Designed responsive interfaces using Figma and collaborated with developers to improve user experience."
-        },
-        {
-            "role": "Web Development Intern",
             "company": "Kistechnosoftware Pvt. Ltd.",
-            "duration": "2024",
+            "duration": "May 2024 — June",
             "location": "Jaipur, Rajasthan",
             "details": "Developed responsive web applications using HTML, CSS, JavaScript and integrated MySQL databases."
         }
