@@ -12,7 +12,7 @@ portfolio_data = {
     "github": "https://github.com/swadeshsinghrathore",   # update if needed
     "available": True,
 
-    "about": {
+    "About": {
         "bio": "Artificial Intelligence focused Computer Science undergraduate with strong academic performance (CGPA 8.89/10) and deep interest in Machine Learning, Computer Vision, and Data Science. Experienced in developing ML-based systems, implementing predictive models, and working with structured and unstructured datasets using Python..",
         "stats": [
             {"num": "8.89", "label": "CGPA"},
@@ -22,7 +22,7 @@ portfolio_data = {
         ]
     },
 
-    "skills": [
+    "Skills": [
         {"icon": "🐍", "name": "Python", "level": 90},
         {"icon": "🤖", "name": "Machine Learning", "level": 85},
         {"icon": "🧠", "name": "Computer Vision", "level": 80},
@@ -33,7 +33,7 @@ portfolio_data = {
         {"icon": "🛠️", "name": "Git / GitHub", "level": 75},
     ],
 
-    "projects": [
+    "Projects": [
         {
             "num": "001(Ongoing)",
             "name": "Smart Crop Advisory System",
@@ -65,7 +65,7 @@ portfolio_data = {
         
     ],
 
-    "education": [
+    "Education": [
         {
             "degree": "B.Tech (Honours) — Computer Science (Artificial Intelligence)",
             "school": "Swami Keshvanand Institute of Technology (SKIT), Jaipur",
@@ -90,7 +90,7 @@ portfolio_data = {
         }
     ],
 
-    "experience": [
+    "Experience": [
         {
             "role": "Technical Intern",
             "company": "Modern Insulators Ltd.",
@@ -114,7 +114,7 @@ portfolio_data = {
         }
     ],
 
-    "certifications": [
+    "Certifications": [
         "5× NPTEL Certifications",
         "Applied NLP Workshop - SKIT",
         "Career Essentials in Generative AI (Microsoft & LinkedIn)",
@@ -122,7 +122,7 @@ portfolio_data = {
         "Web Development Internship Certification"
     ],
 
-    "achievements": [
+    "Achievements": [
         "Student Coordinator — IIRS ISRO Outreach Program (SKIT)",
         "Preliminary Round Qualifier — Smart India Hackathon (SIH)",
         "Hackathon Participant — MUJHACKX 2.0"
