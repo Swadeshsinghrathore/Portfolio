@@ -349,11 +349,11 @@ section {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   
   gap: 1px; width: 100%;
-  background: var(--border); border: 1px solid var(--border);
+   border: 1px solid var(--border);
   border-radius: var(--radius); overflow: hidden;
 }
 .project-card {
-  background: var(--black); padding: 2.5rem;
+padding: 2.5rem;
   transition: background .35s; position: relative;
   text-decoration: none; color: inherit; display: block;
 }
