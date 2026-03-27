@@ -6,7 +6,7 @@ app = Flask(__name__)
 portfolio_data = {
     "name": "Swadesh Singh Rathore",
     "title": "AI & Data Science Enthusiast",
-    "tagline": "Building intelligent systems with strong mathematical foundations and real-world impact.",
+    "tagline": "Turning data into meaningful insights and building intelligent systems for real-world problems.",
     "email": "ssrathore1922@gmail.com",
     "linkedin": "https://www.linkedin.com/in/swadeshsinghrathore",
     "github": "https://github.com/swadeshsinghrathore",   # update if needed
@@ -23,15 +23,61 @@ portfolio_data = {
     },
 
     "skills": [
-        {"icon": "🐍", "name": "Python", "level": 90},
-        {"icon": "🤖", "name": "Machine Learning", "level": 85},
-        {"icon": "🧠", "name": "Computer Vision", "level": 80},
-        {"icon": "📊", "name": "Data Analysis (Pandas, NumPy)", "level": 85},
-        {"icon": "🔥", "name": "TensorFlow / OpenCV", "level": 80},
-        {"icon": "🌐", "name": "Flask / Web Development", "level": 75},
-        {"icon": "🗄️", "name": "MySQL / SQLite", "level": 80},
-        {"icon": "🛠️", "name": "Git / GitHub", "level": 75},
-    ],
+    {
+        "title": "Languages",
+        "skills": [
+            {"icon": "🐍", "name": "Python", "level": 85},
+            {"icon": "💻", "name": "C / C++ / Java", "level": 75},
+            {"icon": "🌐", "name": "JavaScript (Basic)", "level": 65},
+            {"icon": "🗄️", "name": "SQL", "level": 80},
+            {"icon": "📐", "name": "MATLAB", "level": 70}
+        ]
+    },
+    {
+        "title": "AI / Machine Learning",
+        "skills": [
+            {"icon": "🤖", "name": "Machine Learning", "level": 75},
+            {"icon": "🔥", "name": "TensorFlow", "level": 70},
+            {"icon": "🧠", "name": "Scikit-Learn", "level": 75},
+            {"icon": "🧹", "name": "Data Preprocessing", "level": 80}
+        ]
+    },
+    {
+        "title": "Data Science & Analytics",
+        "skills": [
+            {"icon": "📊", "name": "Pandas / NumPy", "level": 85},
+            {"icon": "📈", "name": "Data Analysis & EDA", "level": 80},
+            {"icon": "📉", "name": "Matplotlib / Seaborn", "level": 75},
+            {"icon": "📊", "name": "Statistical Analysis", "level": 70}
+        ]
+    },
+    {
+        "title": "Web Development & Databases",
+        "skills": [
+            {"icon": "🌍", "name": "Flask / Web Development", "level": 80},
+            {"icon": "🗃️", "name": "MySQL / SQLite", "level": 80},
+            {"icon": "🎨", "name": "HTML / CSS / Bootstrap / Figma", "level": 85}
+        ]
+    },
+    {
+        "title": "Tools & Platforms",
+        "skills": [
+            {"icon": "🛠️", "name": "Git / GitHub", "level": 80},
+            {"icon": "📓", "name": "Jupyter / Google Colab", "level": 85},
+            {"icon": "⚙️", "name": "VS Code / IntelliJ / Android Studio", "level": 80},
+            {"icon": "🐍", "name": "Anaconda", "level": 75}
+        ]
+    },
+    {
+        "title": "Soft Skills",
+        "skills": [
+            {"icon": "🧠", "name": "Analytical Thinking", "level": 90},
+            {"icon": "🧩", "name": "Problem Solving", "level": 90},
+            {"icon": "🤝", "name": "Teamwork & Communication", "level": 85},
+            {"icon": "🚀", "name": "Leadership & Adaptability", "level": 85}
+        ]
+    }
+],
 
     "projects": [
         {
@@ -123,9 +169,12 @@ portfolio_data = {
     ],
 
     "achievements": [
+        "Secured 100% scholarship in RCAT Rajasthan(2026)",
+        "Earned NPTEL Elite Certificate in Programming in Java (2025)",
         "Student Coordinator — IIRS ISRO Outreach Program (SKIT)",
         "Preliminary Round Qualifier — Smart India Hackathon (SIH)",
         "Hackathon Participant — MUJHACKX 2.0"
+        
     ]
 }
 

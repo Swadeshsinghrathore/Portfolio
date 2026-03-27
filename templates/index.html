@@ -107,13 +107,20 @@
       <p class="section-label">02 — Skills</p>
       <h2 class="section-title">Tools of the trade.</h2>
     </div>
-    <div class="skills-grid reveal">
-      {% for sk in data.skills %}
-      <div class="skill-card" data-level="{{ sk.level / 100 }}">
-        <span class="skill-icon">{{ sk.icon }}</span>
-        <span class="skill-name">{{ sk.name }}</span>
-        <div class="skill-level">
-          <div class="skill-fill"></div>
+    <div class="skills-stack">
+      {% for group in data.skills %}
+      <div class="skills-group reveal">
+        <div class="skills-group-title">{{ group.title }}</div>
+        <div class="skills-grid">
+          {% for sk in group.skills %}
+          <div class="skill-card" data-level="{{ sk.level / 100 }}">
+            <span class="skill-icon">{{ sk.icon }}</span>
+            <span class="skill-name">{{ sk.name }}</span>
+            <div class="skill-level">
+              <div class="skill-fill"></div>
+            </div>
+          </div>
+          {% endfor %}
         </div>
       </div>
       {% endfor %}
