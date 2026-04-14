@@ -13,9 +13,9 @@ portfolio_data = {
     "available": True,
 
     "about": {
-        "bio": "Artificial Intelligence focused Computer Science undergraduate with strong academic performance (CGPA 8.89/10) and deep interest in Machine Learning, Computer Vision, and Data Science. Experienced in developing ML-based systems, implementing predictive models, and working with structured and unstructured datasets using Python..",
+        "bio": "Artificial Intelligence focused Computer Science undergraduate with strong academic performance (CGPA 9.00/10) and deep interest in Machine Learning, Computer Vision, and Data Science. Experienced in developing ML-based systems, implementing predictive models, and working with structured and unstructured datasets using Python..",
         "stats": [
-            {"num": "8.89", "label": "CGPA"},
+            {"num": "9.00", "label": "CGPA"},
             {"num": "3+", "label": "Projects"},
             {"num": "10+", "label": "Certifications"},
             {"num": "∞", "label": "Curiosity"},
@@ -115,7 +115,7 @@ portfolio_data = {
         {
             "degree": "B.Tech (Honours) — Computer Science (Artificial Intelligence)",
             "school": "Swami Keshvanand Institute of Technology (SKIT), Jaipur",
-            "grade": "CGPA: 8.89/10",
+            "grade": "CGPA: 9.00/10",
             "year": "2023 — 2027",
             "marksheet": "marksheets/bt.pdf"
         },
