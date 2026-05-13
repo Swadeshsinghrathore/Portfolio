@@ -84,31 +84,79 @@ portfolio_data = {
             "num": "001(Ongoing)",
             "name": "Smart Crop Advisory System",
             "desc": "Machine learning-based advisory system assisting farmers in crop selection, irrigation planning, and pest control using soil and weather data. Implemented data preprocessing and predictive modeling for real-time agricultural recommendations.",
+            "long_desc": "This system provides a comprehensive, intelligent agricultural recommendation engine. By analyzing soil metrics, real-time weather forecasts, and historical crop data, it uses predictive machine learning models to suggest optimal crops, forecast precise irrigation schedules, and preemptively warn against likely pest outbreaks. This significantly boosts yield while reducing resource waste.",
             "tags": ["HTML","css","JS","Flask","Python", "Data Preprocessing","...."],
+            "photos": [
+                "image/1.png"
+            ],
+            "contributors": [
+                {
+                    "name": "Swadesh Singh Rathore",
+                    "photo": "image/1.png",
+                    "linkedin": "https://www.linkedin.com/in/swadeshsinghrathore"
+                }
+            ],
             "link": "#"
         },
         {
             "num": "002",
             "name": "Resume Builder & ATS Checker",
             "desc": "Web-based resume platform built using Flask, MySQL, HTML, CSS, and JavaScript. Implemented ATS scoring system using structured keyword analysis and optimized database schema for efficient resume storage and retrieval.",
+            "long_desc": "A fully responsive web platform designed to help job seekers build professional resumes while simultaneously analyzing them against Applicant Tracking Systems (ATS). The application parses the user's resume and job description, running keyword frequency algorithms to provide an actionable ATS score and improvement suggestions. Built with a robust Flask backend and MySQL for secure user data management.",
             "tags": ["HTML","css","JS","Bootstrap","Flask", "MySQL", "SQLite"],
+            "photos": [
+                 "image/1.png"
+            ],
+            "contributors": [
+                {
+                    "name": "Swadesh Singh Rathore",
+                    "photo": "image/1.png",
+                    "linkedin": "https://www.linkedin.com/in/swadeshsinghrathore"
+                }
+            ],
             "link": "https://resumebuilder-hwar.onrender.com"
         },
         {
             "num": "003",
             "name": "Student Portfolio Website",
             "desc": "Personal portfolio website showcasing projects, skills, and experience. Developed using Flask for backend and HTML/CSS/JS for frontend, with structured data management to enable easy updates and scalability.",
+            "long_desc": "A sleek, dark-themed digital portfolio crafted to showcase projects, skills, and academic achievements. It features a completely dynamic backend powered by Flask, meaning all content (projects, skills, education) is injected from structured data without hardcoding HTML. The frontend utilizes custom CSS variables, subtle micro-animations, and a highly responsive design system.",
             "tags": ["HTML","css","JS","Flask","Python"],
+            "photos": [
+                "image/1.png"
+            ],
+            "contributors": [
+                {
+                    "name": "Swadesh Singh Rathore",
+                    "photo": "image/1.png",
+                    "linkedin": "https://www.linkedin.com/in/swadeshsinghrathore"
+                }
+            ],
             "link": "https://portfolio-1-ct6h.onrender.com"
         },
         {
             "num": "004(Team)",
             "name": "Vision Voice (Assistive AI System)",
             "desc": "AI-based assistive system integrating sign language recognition, speech-to-text conversion, and object detection. Built real-time workflows using TensorFlow and OpenCV with structured dataset preparation.",
+            "long_desc": "Vision Voice aims to bridge communication gaps for the differently-abled. It employs deep learning computer vision models via OpenCV and TensorFlow to recognize sign language gestures in real-time and translate them into text/speech. Concurrently, it offers object detection and speech-to-text functionalities to assist visually or hearing impaired users navigate their environment.",
             "tags": ["TensorFlow", "OpenCV", "Computer Vision"],
+            "photos": [
+                 "image/1.png"
+            ],
+            "contributors": [
+                {
+                    "name": "Swadesh Singh Rathore",
+                    "photo": "image/1.png",
+                    "linkedin": "https://www.linkedin.com/in/swadeshsinghrathore"
+                },
+                {
+                    "name": "Team Member",
+                    "photo": "image/1.png",
+                    "linkedin": "#"
+                }
+            ],
             "link": "#"
-        },
-        
+        }
     ],
 
     "education": [

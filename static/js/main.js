@@ -164,3 +164,121 @@ window.addEventListener('scroll', () => {
       ? 'var(--white)' : 'var(--g400)';
   });
 }, { passive: true });
+
+/* ── 11. PROJECT MODAL ── */
+let projectsData = [];
+try {
+  const dataScript = document.getElementById('projectsData');
+  if (dataScript) {
+    projectsData = JSON.parse(dataScript.textContent);
+  }
+} catch (e) {
+  console.error("Error parsing projects data:", e);
+}
+
+const projectModal = document.getElementById('projectModal');
+
+// Make it available globally for inline onclick attributes
+window.openProjectModal = function(index) {
+  if (!projectModal || !projectsData[index]) return;
+  
+  const p = projectsData[index];
+  
+  // Title
+  document.getElementById('modalTitle').textContent = p.name;
+  
+  // Tags
+  const tagsContainer = document.getElementById('modalTags');
+  tagsContainer.innerHTML = '';
+  if (p.tags) {
+    p.tags.forEach(tag => {
+      const span = document.createElement('span');
+      span.className = 'tag';
+      span.textContent = tag;
+      tagsContainer.appendChild(span);
+    });
+  }
+  
+  // Description
+  document.getElementById('modalDesc').textContent = p.long_desc || p.desc;
+  
+  // Photos
+  const photosContainer = document.getElementById('modalPhotos');
+  const photosSection = document.getElementById('modalPhotosSection');
+  photosContainer.innerHTML = '';
+  if (p.photos && p.photos.length > 0) {
+    p.photos.forEach(photo => {
+      const img = document.createElement('img');
+      // Using leading slash for absolute path from root
+      img.src = '/static/' + photo; 
+      photosContainer.appendChild(img);
+    });
+    photosSection.style.display = 'block';
+  } else {
+    photosSection.style.display = 'none';
+  }
+  
+  // Contributors
+  const contribContainer = document.getElementById('modalContributors');
+  const contribSection = document.getElementById('modalContribSection');
+  contribContainer.innerHTML = '';
+  if (p.contributors && p.contributors.length > 0) {
+    p.contributors.forEach(c => {
+      const a = document.createElement('a');
+      a.className = 'contrib-card';
+      a.href = c.linkedin || '#';
+      a.target = '_blank';
+      
+      const img = document.createElement('img');
+      img.className = 'contrib-img';
+      img.src = '/static/' + (c.photo || 'image/1.png');
+      
+      const name = document.createElement('span');
+      name.className = 'contrib-name';
+      name.textContent = c.name;
+      
+      a.appendChild(img);
+      a.appendChild(name);
+      contribContainer.appendChild(a);
+    });
+    contribSection.style.display = 'block';
+  } else {
+    contribSection.style.display = 'none';
+  }
+  
+  // Link
+  const modalLink = document.getElementById('modalLink');
+  if (p.link && p.link !== '#') {
+    modalLink.href = p.link;
+    modalLink.style.display = 'inline-block';
+  } else {
+    modalLink.style.display = 'none';
+  }
+  
+  // Show Modal & Disable body scroll
+  projectModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+window.closeProjectModal = function() {
+  if (projectModal) {
+    projectModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+// Close modal on click outside
+if (projectModal) {
+  projectModal.addEventListener('click', (e) => {
+    if (e.target === projectModal) {
+      window.closeProjectModal();
+    }
+  });
+}
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && projectModal && projectModal.classList.contains('active')) {
+    window.closeProjectModal();
+  }
+});
