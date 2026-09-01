@@ -276,11 +276,14 @@ portfolio_data = {
     ],
 
     "certifications": [
-        "5X NPTEL Certifications",
-        "Applied NLP Workshop - SKIT",
-        "Career Essentials in Generative AI (Microsoft & LinkedIn)",
-        "Geodata Processing using Python and ML - IIRS ISRO",
-        "Web Development Internship Certification"
+            "7X NPTEL Certifications",
+    "Career Essentials in Generative AI (Microsoft & LinkedIn)",
+    "Introduction to Generative AI (AWS Training)",
+    "Geodata Processing using Python and ML — IIRS, ISRO",
+    "Space-Based Inputs for Village-Level Crop Assessment — ISRO",
+    "Workshop on Basics of AI/ML — Cognizance, IIT Roorkee",
+    "Web Development Internship Certification — KTSPL",
+    "Applied NLP Workshop - SKIT"
     ],
 
     "achievements": [
