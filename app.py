@@ -5,7 +5,7 @@ app = Flask(__name__)
 # ── Portfolio Data ──────────────────────────────────────────────
 portfolio_data = {
     "name": "Swadesh Singh Rathore",
-    "title": "AI & Data Science Enthusiast",
+    "title": "AI & Data Engineering Enthusiast",
     "tagline": "Turning data into meaningful insights and building intelligent systems for real-world problems.",
     "email": "ssrathore1922@gmail.com",
     "linkedin": "https://www.linkedin.com/in/swadeshsinghrathore",
@@ -13,10 +13,10 @@ portfolio_data = {
     "available": True,
 
     "about": {
-        "bio": "Artificial Intelligence focused Computer Science undergraduate with strong academic performance (CGPA 9.00/10) and deep interest in Machine Learning, Computer Vision, and Data Science. Experienced in developing ML-based systems, implementing predictive models, and working with structured and unstructured datasets using Python..",
+        "bio": "Computer Science undergraduate (AI specialization) with strong academic performance (CGPA 9.00/10) and hands-on experience across Machine Learning, Data Engineering, and Quantum Computing. Built production-style data pipelines using PySpark, Azure ADF, and Delta Lake, and worked on quantum error mitigation research at DRDO SAG Lab using Qiskit on real IBM Quantum hardware. Comfortable turning both structured and unstructured data into working, deployable systems.",
         "stats": [
             {"num": "9.00", "label": "CGPA"},
-            {"num": "3+", "label": "Projects"},
+            {"num": "7+", "label": "Projects"},
             {"num": "10+", "label": "Certifications"},
             {"num": "∞", "label": "Curiosity"},
         ]
@@ -156,7 +156,60 @@ portfolio_data = {
                 }
             ],
             "link": "#"
+        },
+        {
+    "num": "005",
+    "name": "Online Bookstore & Library Data Warehouse",
+    "desc": "Enterprise-grade data warehouse built during Celebal Technologies Data Engineering internship. Implemented medallion architecture (Bronze-Silver-Gold) in MySQL with watermark-based incremental loading and advanced SQL analytics.",
+    "long_desc": "Designed and built a full-scale data warehouse for an online bookstore & library system following medallion architecture principles. Used watermark-based incremental loading to efficiently process only new/changed records instead of full reloads, cutting redundant processing. Implemented advanced SQL logic including window functions (LAG), CTEs, and self-joins for complex analytical transformations, and delivered 5 Gold-layer KPI views for business reporting. Also applied PySpark fundamentals, Delta Lake MERGE operations, and SCD Type 1/2 handling as part of the broader internship pipeline work.",
+    "tags": ["PySpark", "Azure ADF", "Delta Lake", "MySQL", "SQL", "Medallion Architecture", "ETL"],
+    "photos": [
+        "image/5.png"
+    ],
+    "contributors": [
+        {
+            "name": "Swadesh Singh Rathore",
+            "photo": "image/1.png",
+            "linkedin": "https://www.linkedin.com/in/swadeshsinghrathore"
         }
+    ],
+    "link": "#"
+},
+{
+    "num": "006",
+    "name": "QuantumBase — QEM & QEC Benchmarking Framework",
+    "desc": "Quantum error mitigation and correction benchmarking framework built during DRDO SAG Lab internship. Evaluated multiple QEM techniques across a 7-circuit suite on real IBM Quantum hardware.",
+    "long_desc": "Built a comprehensive benchmarking framework in Qiskit to evaluate Quantum Error Mitigation (QEM) techniques — TREX, Zero-Noise Extrapolation (ZNE), Probabilistic Error Cancellation (PEC), and Dynamical Decoupling — across a 7-circuit test suite (Bell, GHZ-3, GHZ-4, Mirror, QFT, Random Clifford, and Teleportation circuits) run on real IBM Quantum hardware. Also implemented Quantum Error Correction (QEC) codes including the 3-qubit bit-flip and phase-flip codes, with partial implementation of the Shor 9-qubit code, to study fidelity improvements under noise.",
+    "tags": ["Qiskit", "Quantum Computing", "IBM Quantum", "Python", "QEM", "QEC"],
+    "photos": [
+        "image/6.png"
+    ],
+    "contributors": [
+        {
+            "name": "Swadesh Singh Rathore",
+            "photo": "image/1.png",
+            "linkedin": "https://www.linkedin.com/in/swadeshsinghrathore"
+        }
+    ],
+    "link": "#"
+},{
+    "num": "007",
+    "name": "Smart Fraud Detection Pipeline",
+    "desc": "Data engineering pipeline built on Databricks using Medallion Architecture (Bronze-Silver-Gold) to detect fraudulent bank transactions from accounts, transactions, and fraud watchlist data.",
+    "long_desc": "Built an end-to-end fraud detection pipeline on Databricks following Medallion Architecture. Bronze layer ingested raw accounts, transactions, and fraud watchlist CSVs into Delta Tables with schema validation and null checks. Silver layer cleaned and standardized the data (trimming, case normalization, type casting, duplicate removal) and enriched transactions by left-joining them with account details. Gold layer applied fraud-flag logic by matching transactions against the fraud watchlist, then generated aggregated insights — fraud breakdown per account, fraud type, and branch — along with overall summary metrics. Processed 200 transactions across 50 accounts, flagging 26 as fraudulent (13% fraud rate) across 5 Gold-layer output tables.",
+    "tags": ["PySpark", "Spark SQL", "Databricks", "Delta Lake", "Medallion Architecture", "Banking"],
+    "photos": [
+        "image/7.png"
+    ],
+    "contributors": [
+        {
+            "name": "Swadesh Singh Rathore",
+            "photo": "image/1.png",
+            "linkedin": "https://www.linkedin.com/in/swadeshsinghrathore"
+        }
+    ],
+    "link": "#"
+}
     ],
 
     "education": [
@@ -186,24 +239,38 @@ portfolio_data = {
 
     "experience": [
         {
+            "role": "Data Engineering Intern",
+            "company": "Celebal Technologies",
+            "duration": "May 2026- July 2026",
+            "location": "Jaipur(Remote)",
+            "details": "Built enterprise data pipelines using PySpark and Azure ADF; implemented Delta Lake MERGE operations and SCD Type 1/2 handling; designed a medallion architecture data warehouse with watermark-based incremental loading and delivered various  Gold-layer KPI views."
+        },
+        {
+            "role": "Quantum Computing Intern",
+            "company": "DRDO SAG Lab, New Delhi",
+            "duration": "May 2026- July 2026",
+            "location": "New Delhi(Onsite)",
+            "details": "Built a Quantum Error Mitigation (QEM) benchmarking framework in Qiskit covering TREX, ZNE, PEC, and Dynamical Decoupling across a 7-circuit suite on IBM Quantum hardware; implemented Quantum Error Correction (QEC) codes including 3-qubit bit-flip/phase-flip and Shor 9-qubit codes."
+        },
+        {
             "role": "Technical Intern",
             "company": "Modern Insulators Ltd.",
             "duration": "May 2025 — August 2025",
-            "location": "Abu, Rajasthan",
+            "location": "Abu, Rajasthan(Onsite)",
             "details": "Worked on machine learning model implementation, data preprocessing, and agricultural prediction system development."
         },
         {
             "role": "Web Designer", 
             "company": "MechaCraft Technologies Pvt. Ltd.",
             "duration": "June 2024 — November 2024",
-            "location": "Jaipur, Rajasthan",
+            "location": "Jaipur, Rajasthan(Onsite)",
             "details": "Developed and maintained web systems, improved backend data handling, and implemented FAQ module to enhance usability."
         },
         {
             "role": "Web Development Intern",
             "company": "Kistechnosoftware Pvt. Ltd.",
             "duration": "May 2024 — June",
-            "location": "Jaipur, Rajasthan",
+            "location": "Jaipur, Rajasthan(Onsite)",
             "details": "Developed responsive web applications using HTML, CSS, JavaScript and integrated MySQL databases."
         }
     ],
