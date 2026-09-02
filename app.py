@@ -1,6 +1,14 @@
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
+
+# ── Email config ─────────────────────────────────────────────────
+SMTP_SENDER   = "ssrathore.woork@gmail.com"   # Gmail that sends
+SMTP_PASSWORD = "elst ocof nuso xthr"         # Gmail App Password
+SMTP_RECEIVER = "ssrathore1922@gmail.com"     # Gmail that receives
 
 # ── Portfolio Data ──────────────────────────────────────────────
 portfolio_data = {
@@ -27,10 +35,29 @@ portfolio_data = {
         "title": "Languages",
         "skills": [
             {"icon": "🐍", "name": "Python", "level": 85},
-            {"icon": "💻", "name": "C / C++ / Java", "level": 75},
-            {"icon": "🌐", "name": "JavaScript (Basic)", "level": 65},
+            {"icon": "☕", "name": "C / C++ / Java", "level": 75},
             {"icon": "🗄️", "name": "SQL", "level": 80},
+            {"icon": "🟨", "name": "JavaScript (Basic)", "level": 65},
             {"icon": "📐", "name": "MATLAB", "level": 70}
+        ]
+    },
+    {
+        "title": "Data Engineering & Cloud",
+        "skills": [
+            {"icon": "⚡", "name": "PySpark / Spark SQL", "level": 80},
+            {"icon": "☁️", "name": "Azure Data Factory (ADF)", "level": 75},
+            {"icon": "🧊", "name": "Delta Lake", "level": 75},
+            {"icon": "🏗️", "name": "Medallion Architecture / ETL", "level": 80},
+            {"icon": "🧱", "name": "Databricks", "level": 75}
+        ]
+    },
+    {
+        "title": "Quantum Computing",
+        "skills": [
+            {"icon": "⚛️", "name": "Qiskit", "level": 75},
+            {"icon": "🔬", "name": "Quantum Error Mitigation (QEM)", "level": 70},
+            {"icon": "🧬", "name": "Quantum Error Correction (QEC)", "level": 65},
+            {"icon": "💻", "name": "IBM Quantum Hardware", "level": 65}
         ]
     },
     {
@@ -48,7 +75,7 @@ portfolio_data = {
             {"icon": "📊", "name": "Pandas / NumPy", "level": 85},
             {"icon": "📈", "name": "Data Analysis & EDA", "level": 80},
             {"icon": "📉", "name": "Matplotlib / Seaborn", "level": 75},
-            {"icon": "📊", "name": "Statistical Analysis", "level": 70}
+            {"icon": "🎯", "name": "Statistical Analysis", "level": 70}
         ]
     },
     {
@@ -303,18 +330,47 @@ def index():
 
 @app.route("/api/contact", methods=["POST"])
 def contact():
-    """Simple contact endpoint — extend with email/SMTP as needed."""
+    """Send form submission to owner's email via Gmail SMTP."""
     body = request.get_json()
-    name    = body.get("name", "").strip()
-    email   = body.get("email", "").strip()
+    name    = body.get("name",    "").strip()
+    email   = body.get("email",   "").strip()
     message = body.get("message", "").strip()
 
     if not name or not email or not message:
         return jsonify({"success": False, "error": "All fields are required."}), 400
 
-    print(f"[Contact] From: {name} <{email}>\nMessage: {message}")
+    try:
+        # Build the email
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = f"Portfolio Contact: {name}"
+        msg["From"]    = SMTP_SENDER
+        msg["To"]      = SMTP_RECEIVER
+        msg["Reply-To"] = email
 
-    return jsonify({"success": True, "message": "Thanks! I'll get back to you soon."})
+        html_body = f"""
+        <html><body style="font-family:sans-serif;color:#222;max-width:560px;margin:auto">
+          <h2 style="border-bottom:2px solid #0d0d0d;padding-bottom:8px">New Portfolio Message</h2>
+          <p><strong>Name:</strong> {name}</p>
+          <p><strong>Email:</strong> <a href="mailto:{email}">{email}</a></p>
+          <p><strong>Message:</strong></p>
+          <blockquote style="border-left:4px solid #ccc;padding:8px 16px;margin:0;color:#444">
+            {message.replace(chr(10), "<br>")}
+          </blockquote>
+        </body></html>
+        """
+        msg.attach(MIMEText(html_body, "html"))
+
+        # Send via Gmail SMTP
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+            server.login(SMTP_SENDER, SMTP_PASSWORD)
+            server.sendmail(SMTP_SENDER, SMTP_RECEIVER, msg.as_string())
+
+        print(f"[Contact] Email sent from {name} <{email}>")
+        return jsonify({"success": True, "message": "Thanks! I'll get back to you soon."})
+
+    except Exception as e:
+        print(f"[Contact] Email failed: {e}")
+        return jsonify({"success": False, "error": "Failed to send. Please try again."}), 500
 
 # ── Run ─────────────────────────────────────────────────────────
 if __name__ == "__main__":

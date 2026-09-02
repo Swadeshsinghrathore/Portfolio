@@ -28,6 +28,9 @@
       <li><a href="#achievements">Achievements</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light / dark mode">
+      <span class="theme-icon">☀</span>
+    </button>
     <button class="nav-menu-btn" id="menuBtn">☰</button>
   </nav>
 
@@ -42,14 +45,10 @@
 
   <!-- ── HERO ── -->
   <section id="hero">
-    <!-- <div class="orbit-ring ring-1"></div>
-    <div class="orbit-ring ring-2"></div>
-    <div class="orbit-ring ring-3"></div> -->
-
     <div class="hero-grid">
       <div class="hero-copy">
         {% if data.available %}
-       <div class="hero-tag" >✦ Available for opportunities</div>
+        <div class="hero-tag">✦ Available for opportunities</div>
         {% endif %}
 
         <h1 class="hero-name" id="heroName">{{ data.name.upper() }}</h1>
@@ -57,21 +56,21 @@
           <span>{{ data.title }}</span> —
           {{ data.tagline }}
         </p>
-        <a href="#projects" style="color: white;" > <div class="ag-badge"><span class="ag-dot"></span>Ongoing Project</div></a>
+        <a href="#projects" class="ag-badge-link">
+          <div class="ag-badge"><span class="ag-dot"></span>Ongoing Project</div>
+        </a>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary">View Work</a>
           <a href="#contact" class="btn btn-outline">Let's Talk</a>
-          <a href="{{ url_for('static', filename='resume/resume.pdf') }}" class="btn btn-outline">  
-        <span class="text">↓ Download Resume</span></a>
-
-
-          
+          <a href="{{ url_for('static', filename='resume/resume.pdf') }}" class="btn btn-outline">
+            <span class="text">↓ Download Resume</span>
+          </a>
         </div>
       </div>
 
       <div class="hero-portrait">
         <div class="hero-image-frame">
-          <img src="{{ url_for('static', filename='image/1.png') }}" alt="{{ data.name }} portrait" />
+          <img id="heroImg" src="{{ url_for('static', filename='image/1.png') }}" alt="{{ data.name }} portrait" />
           <span class="hero-image-glow"></span>
         </div>
       </div>
@@ -97,10 +96,6 @@
     </div>
   </section>
 
-
-
-
-  
   <!-- ── SKILLS ── -->
   <section id="skills">
     <div class="reveal sec-header">
@@ -164,11 +159,9 @@
           <div class="edu-school">{{ e.school }} · {{ e.grade }}</div>
         </div>
         <div class="edu-year">{{ e.year }}</div>
-         <a href="{{ url_for('static', filename=e.marksheet) }}" 
-       target="_blank" 
-       class="marksheet-btn">
-       View Marksheet
-    </a>
+        <a href="{{ url_for('static', filename=e.marksheet) }}" target="_blank" class="marksheet-btn">
+          View Marksheet
+        </a>
       </div>
       {% endfor %}
     </div>
@@ -222,17 +215,6 @@
     </div>
   </section>
 
-
-
-
-
-
-
-
-
-
-
-
   <!-- ── CONTACT ── -->
   <section id="contact">
     <div class="reveal">
@@ -240,11 +222,10 @@
       <h2 class="contact-big">Let's build<br>something<br>impossible.</h2>
     </div>
 
-    <!-- Contact Form -->
     <form class="contact-form reveal" id="contactForm">
       <div class="form-row">
-        <input type="text"  id="cf-name"    placeholder="Your Name"    required />
-        <input type="email" id="cf-email"   placeholder="Your Email"   required />
+        <input type="text"  id="cf-name"  placeholder="Your Name"    required />
+        <input type="email" id="cf-email" placeholder="Your Email"   required />
       </div>
       <textarea id="cf-msg" placeholder="Your Message" rows="4" required></textarea>
       <button type="submit" class="btn btn-primary form-btn">Send Message ↗</button>
@@ -253,9 +234,8 @@
 
     <div class="contact-links reveal">
       <a href="mailto:{{ data.email }}" class="contact-link">✉ Email</a>
-      <a href="{{ data.linkedin }}"     class="contact-link" target="_blank">in LinkedIn</a>
-      <a href="{{ data.github }}"       class="contact-link" target="_blank">⌥ GitHub</a>
-      <!-- <a href="{{ data.antigravity }}"  class="contact-link" target="_blank">✦ Antigravity AI</a> -->
+      <a href="{{ data.linkedin }}" class="contact-link" target="_blank">in LinkedIn</a>
+      <a href="{{ data.github }}"   class="contact-link" target="_blank">⌥ GitHub</a>
     </div>
   </section>
 
@@ -263,7 +243,7 @@
   <div id="projectModal" class="modal-overlay">
     <div class="modal-content">
       <button class="modal-close" onclick="closeProjectModal()">×</button>
-      
+
       <div class="modal-header">
         <h2 id="modalTitle" class="modal-title">Project Name</h2>
         <div id="modalTags" class="modal-tags project-tags"></div>
@@ -294,7 +274,7 @@
 
   <footer>© 2025 — {{ data.name.upper() }}</footer>
 
-  <!-- Safely embed project data for JS to use -->
+  <!-- Project data for JS -->
   <script id="projectsData" type="application/json">
     {{ data.projects | tojson | safe }}
   </script>

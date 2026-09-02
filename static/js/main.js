@@ -1,8 +1,8 @@
 /* =========================================================
-   ANTIGRAVITY AI — MINIMALIST PORTFOLIO  |  main.js
+   PORTFOLIO  |  main.js
    ========================================================= */
 
-/* ── 2. INTERACTIVE DOT GRID (canvas) ── */
+/* ── 1. INTERACTIVE DOT GRID (canvas) ── */
 const canvas = document.getElementById('bg-canvas');
 const ctx    = canvas.getContext('2d');
 let W, H, dots = [];
@@ -50,7 +50,7 @@ document.addEventListener('mousemove', e => { pmx = e.clientX; pmy = e.clientY; 
   requestAnimationFrame(renderGrid);
 })();
 
-/* ── 3. FLOATING PARTICLES ── */
+/* ── 2. FLOATING PARTICLES ── */
 for (let i = 0; i < 60; i++) {
   const p    = document.createElement('div');
   p.className = 'particle';
@@ -65,20 +65,20 @@ for (let i = 0; i < 60; i++) {
   document.body.appendChild(p);
 }
 
-/* ── 4. HERO NAME ENTRANCE ── */
+/* ── 3. HERO NAME ENTRANCE ── */
 window.addEventListener('load', () => {
   const hn = document.getElementById('heroName');
   if (hn) setTimeout(() => hn.classList.add('visible'), 200);
 });
 
-/* ── 5. SCROLL REVEAL ── */
+/* ── 4. SCROLL REVEAL ── */
 const revealIO = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
 
-/* ── 6. SKILL BAR ANIMATION ── */
+/* ── 5. SKILL BAR ANIMATION ── */
 const skillIO = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
@@ -90,7 +90,7 @@ const skillIO = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.skill-card').forEach(c => skillIO.observe(c));
 
-/* ── 7. MAGNETIC HOVER EFFECT ── */
+/* ── 6. MAGNETIC HOVER EFFECT ── */
 document.querySelectorAll('.btn, .contact-link, .project-card').forEach(el => {
   el.addEventListener('mousemove', e => {
     const b  = el.getBoundingClientRect();
@@ -101,7 +101,7 @@ document.querySelectorAll('.btn, .contact-link, .project-card').forEach(el => {
   el.addEventListener('mouseleave', () => { el.style.transform = ''; });
 });
 
-/* ── 8. MOBILE MENU ── */
+/* ── 7. MOBILE MENU ── */
 const menuBtn    = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 
@@ -112,7 +112,7 @@ function closeMobile() {
   if (mobileMenu) mobileMenu.classList.remove('open');
 }
 
-/* ── 9. CONTACT FORM ── */
+/* ── 8. CONTACT FORM ── */
 const form       = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
 
@@ -150,7 +150,7 @@ if (form) {
   });
 }
 
-/* ── 10. ACTIVE NAV LINK on SCROLL ── */
+/* ── 9. ACTIVE NAV LINK ON SCROLL ── */
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -165,28 +165,25 @@ window.addEventListener('scroll', () => {
   });
 }, { passive: true });
 
-/* ── 11. PROJECT MODAL ── */
+/* ── 10. PROJECT MODAL ── */
 let projectsData = [];
 try {
   const dataScript = document.getElementById('projectsData');
-  if (dataScript) {
-    projectsData = JSON.parse(dataScript.textContent);
-  }
+  if (dataScript) projectsData = JSON.parse(dataScript.textContent);
 } catch (e) {
-  console.error("Error parsing projects data:", e);
+  console.error('Error parsing projects data:', e);
 }
 
 const projectModal = document.getElementById('projectModal');
 
-// Make it available globally for inline onclick attributes
 window.openProjectModal = function(index) {
   if (!projectModal || !projectsData[index]) return;
-  
+
   const p = projectsData[index];
-  
+
   // Title
   document.getElementById('modalTitle').textContent = p.name;
-  
+
   // Tags
   const tagsContainer = document.getElementById('modalTags');
   tagsContainer.innerHTML = '';
@@ -198,45 +195,44 @@ window.openProjectModal = function(index) {
       tagsContainer.appendChild(span);
     });
   }
-  
+
   // Description
   document.getElementById('modalDesc').textContent = p.long_desc || p.desc;
-  
+
   // Photos
   const photosContainer = document.getElementById('modalPhotos');
-  const photosSection = document.getElementById('modalPhotosSection');
+  const photosSection   = document.getElementById('modalPhotosSection');
   photosContainer.innerHTML = '';
   if (p.photos && p.photos.length > 0) {
     p.photos.forEach(photo => {
       const img = document.createElement('img');
-      // Using leading slash for absolute path from root
-      img.src = '/static/' + photo; 
+      img.src = '/static/' + photo;
       photosContainer.appendChild(img);
     });
     photosSection.style.display = 'block';
   } else {
     photosSection.style.display = 'none';
   }
-  
+
   // Contributors
   const contribContainer = document.getElementById('modalContributors');
-  const contribSection = document.getElementById('modalContribSection');
+  const contribSection   = document.getElementById('modalContribSection');
   contribContainer.innerHTML = '';
   if (p.contributors && p.contributors.length > 0) {
     p.contributors.forEach(c => {
-      const a = document.createElement('a');
+      const a   = document.createElement('a');
       a.className = 'contrib-card';
-      a.href = c.linkedin || '#';
+      a.href   = c.linkedin || '#';
       a.target = '_blank';
-      
+
       const img = document.createElement('img');
       img.className = 'contrib-img';
       img.src = '/static/' + (c.photo || 'image/1.png');
-      
+
       const name = document.createElement('span');
-      name.className = 'contrib-name';
+      name.className   = 'contrib-name';
       name.textContent = c.name;
-      
+
       a.appendChild(img);
       a.appendChild(name);
       contribContainer.appendChild(a);
@@ -245,40 +241,81 @@ window.openProjectModal = function(index) {
   } else {
     contribSection.style.display = 'none';
   }
-  
+
   // Link
   const modalLink = document.getElementById('modalLink');
   if (p.link && p.link !== '#') {
-    modalLink.href = p.link;
+    modalLink.href         = p.link;
     modalLink.style.display = 'inline-block';
   } else {
     modalLink.style.display = 'none';
   }
-  
-  // Show Modal & Disable body scroll
+
+  // Show modal & disable body scroll
   projectModal.classList.add('active');
   document.body.style.overflow = 'hidden';
-}
+};
 
 window.closeProjectModal = function() {
   if (projectModal) {
     projectModal.classList.remove('active');
     document.body.style.overflow = '';
   }
-}
+};
 
-// Close modal on click outside
+// Close on backdrop click
 if (projectModal) {
-  projectModal.addEventListener('click', (e) => {
-    if (e.target === projectModal) {
-      window.closeProjectModal();
-    }
+  projectModal.addEventListener('click', e => {
+    if (e.target === projectModal) window.closeProjectModal();
   });
 }
 
 // Close on Escape key
-document.addEventListener('keydown', (e) => {
+document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && projectModal && projectModal.classList.contains('active')) {
     window.closeProjectModal();
   }
 });
+
+/* ── 11. THEME TOGGLE ── */
+(function initTheme() {
+  const toggleBtn = document.getElementById('themeToggle');
+  const heroImg   = document.getElementById('heroImg');
+
+  const DARK_IMG   = '/static/image/1.png';
+  const LIGHT_IMG  = '/static/image/3.png';
+  const DARK_ICON  = '☀';  // shown in dark mode  → click to go light
+  const LIGHT_ICON = '☾';  // shown in light mode → click to go dark
+
+  let isLight = localStorage.getItem('theme') === 'light';
+
+  function applyTheme(light) {
+    if (light) {
+      document.body.classList.add('light-theme');
+      if (heroImg) heroImg.src = LIGHT_IMG;
+    } else {
+      document.body.classList.remove('light-theme');
+      if (heroImg) heroImg.src = DARK_IMG;
+    }
+    if (toggleBtn) {
+      toggleBtn.querySelector('.theme-icon').textContent = light ? LIGHT_ICON : DARK_ICON;
+    }
+  }
+
+  // Apply saved preference on load
+  applyTheme(isLight);
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      isLight = !isLight;
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      applyTheme(isLight);
+      // Spin animation
+      const icon = toggleBtn.querySelector('.theme-icon');
+      if (icon) {
+        icon.style.transform = 'rotate(360deg)';
+        setTimeout(() => { icon.style.transform = ''; }, 400);
+      }
+    });
+  }
+})();
